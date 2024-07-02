@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
-  email: Number,
-  pwd: Number,
+  email: String,
+  pwd: String,
 });
 
 const user = mongoose.model("User", userSchema);

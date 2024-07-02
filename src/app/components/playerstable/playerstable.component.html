@@ -13,7 +13,7 @@
     <tbody>
       <tr *ngFor="let elt of playerTab">
         <td>
-          <h5>{{ elt.id }}</h5>
+          <h5>{{ elt._id }}</h5>
         </td>
         <td>
           <h5>{{ elt.name }}</h5>
@@ -25,14 +25,18 @@
           <h5>{{ elt.nbr }}</h5>
         </td>
         <td>
-          <h5>{{ elt.position }}</h5>
+          <h5>{{ elt.pos }}</h5>
         </td>
         <td>
-          <button class="btn btn-warning" (click)="goToPlayerInfo(elt.id)">
+          <button class="btn btn-warning" (click)="goToPlayerInfo(elt._id)">
             Display
           </button>
-          <button class="btn btn-danger" onclick="">Delete</button>
-          <button class="btn btn-success" onclick="">update</button>
+          <button class="btn btn-danger" (click)="deletePlayer(elt._id)">
+            Delete
+          </button>
+          <button class="btn btn-success" (click)="goToEditPlayer(elt._id)">
+            update
+          </button>
         </td>
       </tr>
     </tbody>

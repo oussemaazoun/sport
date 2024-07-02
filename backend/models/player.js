@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const playerSchema = mongoose.Schema({
   name: String,
   age: Number,
-  position: String,
+  pos: String,
   nbr: Number,
 });
 

@@ -11,10 +11,10 @@ export class PlayerService {
     return this.http.post<{ isAdded: boolean }>(this.playerURL, player);
   }
   editPlayer(playerObj: any) {
-    return this.http.put(this.playerURL, playerObj);
+    return this.http.put<{ isEdited: boolean }>(this.playerURL, playerObj);
   }
   deletePlayer(id: any) {
-    return this.http.delete(`${this.playerURL}/${id}`);
+    return this.http.delete<{ isDelited: boolean }>(`${this.playerURL}/${id}`);
   }
   getPlayerById(id: any) {
     return this.http.get<{ player: any }>(`${this.playerURL}/${id}`);

@@ -12,7 +12,7 @@
     <tbody>
       <tr *ngFor="let elt of teamsTab">
         <td>
-          <h5>{{ elt.id }}</h5>
+          <h5>{{ elt._id }}</h5>
         </td>
         <td>
           <h5>{{ elt.name }}</h5>
@@ -24,11 +24,11 @@
           <h5>{{ elt.foundation }}</h5>
         </td>
         <td>
-          <button class="btn btn-warning" (click)="goToTeamInfo(elt.id)">
+          <button class="btn btn-warning" (click)="goToTeamInfo(elt._id)">
             Display
           </button>
           <button class="btn btn-danger" onclick="">Delete</button>
-          <button class="btn btn-success" (click)="goToEditTeam(elt.id)">
+          <button class="btn btn-success" (click)="goToEditTeam(elt._id)">
             edit
           </button>
         </td>

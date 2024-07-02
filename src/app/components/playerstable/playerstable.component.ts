@@ -20,4 +20,16 @@ export class PlayerstableComponent implements OnInit {
   goToPlayerInfo(id: number) {
     this.route.navigate([`playerinfo/${id}`]);
   }
+  deletePlayer(id: any) {
+    this.pService.deletePlayer(id).subscribe((response) => {
+      if (response.isDelited) {
+        this.pService.getAllPlayeres().subscribe((data) => {
+          this.playerTab = data.players;
+        });
+      }
+    });
+  }
+  goToEditPlayer(id: any) {
+    this.route.navigate([`editplayer/${id}`]);
+  }
 }
