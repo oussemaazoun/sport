@@ -1,0 +1,54 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr class="">
+        <th>ID</th>
+        <th>team one</th>
+        <th>team two</th>
+        <th>score one</th>
+        <th>score two</th>
+        <th>result</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elt of matchesTab">
+        <td>
+          <h5>{{ elt._id }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.teamOne }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.teamTwo }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.scoreOne }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.scoreTwo }}</h5>
+        </td>
+        <td>
+          <h5
+            [ngStyle]="{
+              color: scoreResult(elt.scoreOne, elt.scoreTwo, elt.teamOne)[1]
+            }"
+          >
+            {{ scoreResult(elt.scoreOne, elt.scoreTwo, elt.teamOne)[0] }}
+          </h5>
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="goToInfo(elt._id)">
+            Display
+          </button>
+          <button class="btn btn-danger" (click)="deleteMatch(elt._id)">
+            Delete
+          </button>
+          <button class="btn btn-success" (click)="editMatch(elt._id)">
+            edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

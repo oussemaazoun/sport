@@ -1,0 +1,91 @@
+<div class="site-wrap">
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <div
+    class="hero overlay"
+    style="background-image: url('assets/images/bg_3.jpg')"
+  >
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">search</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-7">
+          <form [formGroup]="searchForm">
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="scoreOne"
+                placeholder="score One"
+              />
+            </div>
+            <div
+              *ngIf="
+                searchForm.controls['scoreOne'].invalid &&
+                (searchForm.controls['scoreOne'].touched ||
+                  searchForm.controls['scoreOne'].dirty)
+              "
+            >
+              <div *ngIf="searchForm.controls['scoreOne'].errors?.['required']">
+                score One is required
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="scoreTwo"
+                placeholder="score Two"
+              />
+            </div>
+
+            <div
+              *ngIf="
+                searchForm.controls['scoreTwo'].invalid &&
+                (searchForm.controls['scoreTwo'].touched ||
+                  searchForm.controls['scoreTwo'].dirty)
+              "
+            >
+              <div *ngIf="searchForm.controls['scoreTwo'].errors?.['required']">
+                score Two is required
+              </div>
+            </div>
+
+            <div class="form-group text-center">
+              <input
+                type="submit"
+                [disabled]="searchForm.invalid"
+                class="btn btn-primary py-3 px-5"
+                (click)="search()"
+                value="search"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 100px" *ngFor="let elt of searchTab">
+  <app-result [obj]="elt"></app-result>
+</div>
+<div *ngIf="searchTab?.length == 0">
+  <div class="text-center text-danger" style="font-size: 30px">no matches</div>
+</div>

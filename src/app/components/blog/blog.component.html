@@ -1,0 +1,16 @@
+<div class="container site-section">
+  <div class="row">
+    <div class="col-6 title-section">
+      <h2 class="heading">Our Blog</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="col-lg-4"
+      style="margin-top: 30px"
+      *ngFor="let elt of articlsTab"
+    >
+      <app-article [obj]="elt"></app-article>
+    </div>
+  </div>
+</div>

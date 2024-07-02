@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr class="">
+        <th>ID</th>
+        <th>team name</th>
+        <th>owner</th>
+        <th>foundation</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elt of teamsTab">
+        <td>
+          <h5>{{ elt.id }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.name }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.owner }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.foundation }}</h5>
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="goToTeamInfo(elt.id)">
+            Display
+          </button>
+          <button class="btn btn-danger" onclick="">Delete</button>
+          <button class="btn btn-success" (click)="goToEditTeam(elt.id)">
+            edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

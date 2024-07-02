@@ -1,0 +1,40 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr class="">
+        <th>ID</th>
+        <th>player name</th>
+        <th>age</th>
+        <th>number</th>
+        <th>position</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elt of playerTab">
+        <td>
+          <h5>{{ elt.id }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.name }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.age }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.nbr }}</h5>
+        </td>
+        <td>
+          <h5>{{ elt.position }}</h5>
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="goToPlayerInfo(elt.id)">
+            Display
+          </button>
+          <button class="btn btn-danger" onclick="">Delete</button>
+          <button class="btn btn-success" onclick="">update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
